@@ -1,11 +1,54 @@
-# Ignore IDE files
+# ==============================
+# IDE Files
+# ==============================
 .idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
 
-# Ignore OS files
+# ==============================
+# Operating System Files
+# ==============================
 .DS_Store
+Thumbs.db
 
-# Ignore environment files
+# ==============================
+# Environment Files
+# ==============================
 .env
+ui/.env
+ui/.env.local
+ui/.env.development.local
+ui/.env.test.local
+ui/.env.production.local
 
-# Ignore Node modules
+# ==============================
+# Logs
+# ==============================
+logs/
+*.log
+*.logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==============================
+# Java Build Files
+# ==============================
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# ==============================
+# Node.js Build Files
+# ==============================
 ui/node_modules/
+ui/.next/
+ui/out/
+ui/.cache/
+ui/build/
+ui/dist/
