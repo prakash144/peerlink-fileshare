@@ -1,6 +1,7 @@
-# PeerLink - P2P File Sharing Application
+# FileShare - P2P File Sharing Application
 
-PeerLink is a peer-to-peer file sharing application that allows users to share files directly between devices using a simple invite code system.
+> FileShare is a peer-to-peer file sharing application that allows users to share files directly between devices using a simple invite code system.
+
 
 ## Project Structure
 
@@ -12,6 +13,7 @@ PeerLink is a peer-to-peer file sharing application that allows users to share f
 - `ui/`: Next.js frontend application
     - `src/app`: Next.js app router pages
     - `src/components`: React components
+---
 
 ## Features
 
@@ -21,13 +23,19 @@ PeerLink is a peer-to-peer file sharing application that allows users to share f
 - Modern, responsive UI
 - Direct peer-to-peer file transfer
 
+---
+
 ## Prerequisites
 
 - Java 11+ (for the backend)
 - Node.js 18+ and npm (for the frontend)
 - Maven (for building the Java project)
 
+---
+
 ## Getting Started
+
+---
 
 ### Quick Start
 
@@ -104,50 +112,50 @@ These scripts will build the Java backend, start the server, and launch the fron
 
 ```mermaid
 classDiagram
-    %% Frontend Components
+%% Frontend Components
     class NextJSApp {
         +handleFileUpload()
         +handleFileDownload()
         +connectToPeer()
     }
-    
+
     class FileUploadComponent {
         +handleDragDrop()
         +validateFile()
         +uploadFile()
     }
-    
+
     class FileDownloadComponent {
         +enterInviteCode()
         +downloadFile()
         +showProgress()
     }
 
-    %% Backend Components
+%% Backend Components
     class App {
         +main()
         +startServer()
     }
-    
+
     class FileController {
         +uploadFile()
         +generateInviteCode()
         +validateInviteCode()
     }
-    
+
     class FileService {
         +storeFile()
         +createFileServer()
         +handleFileTransfer()
     }
-    
+
     class FileUtils {
         +validateFile()
         +generatePort()
         +cleanupResources()
     }
 
-    %% Relationships
+%% Relationships
     NextJSApp --> FileUploadComponent
     NextJSApp --> FileDownloadComponent
     FileUploadComponent --> FileController
@@ -155,7 +163,7 @@ classDiagram
     FileController --> FileService
     FileService --> FileUtils
 
-    %% Data Flow
+%% Data Flow
     class DataFlow {
         FileUpload
         FileDownload
@@ -163,7 +171,7 @@ classDiagram
         PortNumber
     }
 
-    %% Component Notes
+%% Component Notes
     note for NextJSApp "Handles UI state and user interactions"
     note for FileController "REST API endpoints for file operations"
     note for FileService "Core business logic for file handling"
@@ -207,6 +215,4 @@ Options include:
 - Cloud deployment (Heroku, Railway, Vercel, Netlify)
 - VPS deployment
 
-## License
-
-MIT
+---
