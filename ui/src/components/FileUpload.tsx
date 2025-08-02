@@ -11,14 +11,14 @@ interface FileUploadProps {
 
 export default function FileUpload({ onFileUpload, isUploading }: FileUploadProps) {
   const [dragActive, setDragActive] = useState(false);
-  
+
   const onDrop = useCallback((acceptedFiles: File[]) => {
     if (acceptedFiles.length > 0) {
       onFileUpload(acceptedFiles[0]);
     }
   }, [onFileUpload]);
-  
-  const { getRootProps, getInputProps } = useDropzone({ 
+
+  const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     multiple: false,
     onDragEnter: () => setDragActive(true),
@@ -28,27 +28,38 @@ export default function FileUpload({ onFileUpload, isUploading }: FileUploadProp
   });
 
   return (
-    <div 
-      {...getRootProps()} 
-      className={`
-        w-full p-8 border-2 border-dashed rounded-lg text-center cursor-pointer transition-all
-        ${dragActive 
-          ? 'border-blue-500 bg-blue-50' 
-          : 'border-gray-300 hover:border-blue-400 hover:bg-gray-50'
-        }
-        ${isUploading ? 'opacity-50 pointer-events-none' : ''}
-      `}
-    >
-      <input {...getInputProps()} />
-      <div className="flex flex-col items-center justify-center space-y-3">
-        <div className="p-3 bg-blue-100 rounded-full">
-          <FiUpload className="w-6 h-6 text-blue-500" />
+      <div className="relative w-full">
+        {/* Animated silk effect */}
+        <div className="absolute inset-0 z-0 rounded-2xl overflow-hidden animate-backgroundWave bg-gradient-to-tr from-[#e0f7fa] via-[#fce4ec] to-[#e8f5e9] opacity-50 blur-3xl" />
+
+        {/* Upload Box */}
+        <div
+            {...getRootProps()}
+            className={`
+          relative z-10 backdrop-blur-xl bg-white/30 border-2 border-dashed rounded-2xl 
+          px-8 py-12 text-center cursor-pointer transition-all duration-300
+          shadow-xl ring-1 ring-inset ring-white/10
+          ${
+                dragActive
+                    ? 'border-blue-500 bg-white/40 scale-[1.02]'
+                    : 'border-gray-300 hover:border-blue-400 hover:bg-white/40'
+            }
+          ${isUploading ? 'opacity-50 pointer-events-none' : ''}
+        `}
+        >
+          <input {...getInputProps()} />
+          <div className="flex flex-col items-center justify-center space-y-4">
+            <div className="p-4 bg-white/30 rounded-full shadow-lg backdrop-blur-sm">
+              <FiUpload className="w-7 h-7 text-blue-500" />
+            </div>
+            <p className="text-lg font-semibold text-gray-800">
+              Drag & drop a file here, or click to select
+            </p>
+            <p className="text-sm text-gray-600">
+              Share any file securely with your peers
+            </p>
+          </div>
         </div>
-        <p className="text-lg font-medium">Drag & drop a file here, or click to select</p>
-        <p className="text-sm text-gray-500">
-          Share any file with your peers securely
-        </p>
       </div>
-    </div>
   );
 }

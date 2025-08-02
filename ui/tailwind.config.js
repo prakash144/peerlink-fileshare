@@ -21,6 +21,20 @@ module.exports = {
           900: '#0c4a6e',
         },
       },
+      animation: {
+        backgroundWave: 'backgroundWave 20s ease-in-out infinite',
+        'float-slow': 'floatSlow 30s ease-in-out infinite',
+      },
+      keyframes: {
+        backgroundWave: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        floatSlow: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(-20px) rotate(2deg)' },
+        },
+      },
     },
   },
   plugins: [],
