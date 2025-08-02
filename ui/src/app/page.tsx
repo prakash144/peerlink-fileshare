@@ -150,7 +150,17 @@ export default function Home() {
       </div>
       
       <footer className="mt-12 text-center text-gray-500 text-sm">
-        <p>FileShare &copy; {new Date().getFullYear()} - Secure P2P File Sharing</p>
+        <p>
+          FileShare &copy; {new Date().getFullYear()} - Secure P2P File Sharing developed by {' '}
+          <a
+              href="https://www.prakashrabidas.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+          >
+            Prakash
+          </a>
+        </p>
       </footer>
     </div>
   );
